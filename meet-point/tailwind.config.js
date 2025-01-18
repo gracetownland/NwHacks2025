@@ -1,11 +1,17 @@
 /** @type {import('tailwindcss').Config} */
-
-  module.exports = {
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules/@shadcn/ui/**/*.{js,ts}'], // Include ShadCN paths
+module.exports = {
+  content: ['./src/**/*.{js,jsx,ts,tsx}', './node_modules/@shadcn/ui/**/*.{js,ts}'],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        fadeIn: 'fadeIn 0.5s ease-in-out',
+      },
+    },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('tailwindcss-animate'),
+  ],
 };
 
 
