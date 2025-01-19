@@ -119,8 +119,12 @@ const HeroCarousel = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="left-4 bg-gray-900/80 text-white backdrop-blur hover:bg-gray-800" />
-          <CarouselNext className="right-4 bg-gray-900/80 text-white backdrop-blur hover:bg-gray-800" />
+        <CarouselPrevious
+  className="left-8 bg-gray-900/80 text-white backdrop-blur hover:bg-gray-800 transition-transform -translate-x-8"
+/>
+<CarouselNext
+  className="right-8 bg-gray-900/80 text-white backdrop-blur hover:bg-gray-800 transition-transform translate-x-8"
+/>
         </Carousel>
 
         {/* Carousel Indicators */}
