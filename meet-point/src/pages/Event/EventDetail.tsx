@@ -6,6 +6,8 @@ import {
   Star,
   Users,
 } from "lucide-react";
+import bookclub1 from "../../assets/bookclub1.jpg";
+import bookclub2 from "../../assets/bookclub2.jpg";
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
@@ -148,19 +150,21 @@ export default function EventDetail() {
             </Card>
 
             {/* Photos section */}
-            <div className="space-y-4">
-              <h2 className="text-2xl font-bold text-white">Event Photos</h2>
-              <div className="grid grid-cols-3 gap-4">
-                {[1, 2, 3].map((photo, index) => (
-                  <img
-                    key={index}
-                    src={`/api/placeholder/400/300`}
-                    alt={`Event photo ${index + 1}`}
-                    className="rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
-                  />
-                ))}
-              </div>
-            </div>
+           <div className="space-y-4">
+  <h2 className="text-2xl font-bold text-white">Event Photos</h2>
+  <div className="grid grid-cols-3 gap-4">
+    <img
+      src={bookclub1}
+      alt="Event photo 1"
+      className="w-full h-48 object-cover rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
+    />
+    <img
+      src={bookclub2}
+      alt="Event photo 2"
+      className="w-full h-48 object-cover rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
+    />
+  </div>
+</div>
           </div>
 
           {/* Right column - Event Details & Points */}
