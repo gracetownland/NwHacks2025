@@ -1,4 +1,5 @@
-import * as turf from "@turf/turf";
+import { buffer } from "@turf/buffer";
+import { point } from "@turf/helpers";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import { useState, useEffect } from "react";
@@ -12,10 +13,10 @@ export default function Map() {
         //Need to do it like this because we use the browser's geolocation api which is async
         navigator.geolocation.getCurrentPosition((pos) => {
             const newPos: [number, number] = [pos.coords.longitude, pos.coords.latitude];
-            const point = turf.point(newPos);
-            const buffer = turf.buffer(point, 0.5);
+            const pointer = point(newPos);
+            const bufferer = buffer(pointer, 0.5);
             setPosition(newPos);
-            setBuffered(buffer);
+            setBuffered(bufferer);
         });
     }, []);
 
@@ -26,7 +27,7 @@ export default function Map() {
 
     return (
         //center property does exist lint just doesnt like it idk why
-        <MapContainer center={[position[1], position[0]]} zoom={15} style={{ height: 400, width: "100%" }}>
+        <MapContainer  center={[position[1], position[0]]} zoom={15} style={{ height: 400, width: "100%" }}>
             <TileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
