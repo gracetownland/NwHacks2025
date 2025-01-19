@@ -1,6 +1,7 @@
 import "./App.css";
 
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import { Toaster } from "@/components/ui/toaster";
 
 import { CommunityEvents } from "./CommunityEvents";
 import EventDetail from "./pages/Event/EventDetail";
@@ -18,6 +19,7 @@ function App() {
         <Route path="/events/:eventId" element={<EventDetail/>} />
         <Route path="/rewards" element={<Reward />} />
       </Routes>
+      <Toaster />
     </Router>
   );
 }

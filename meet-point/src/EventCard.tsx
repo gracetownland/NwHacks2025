@@ -27,7 +27,7 @@ export function EventCard({
     <Card 
       className={`group overflow-hidden transition-all duration-300 hover:scale-[1.02] 
       bg-gray-900/50 backdrop-blur-xl border-gray-800 hover:border-teal-500/50
-      ${neonEffects.teal} hover:shadow-[0_0_30px_rgba(45,212,191,0.4)]`}
+      ${neonEffects.teal} hover:shadow-[0_0_10px_rgba(45,212,191,0.4)]`}
     >
       {/* Event Banner */}
       <div className="relative bg-gradient-to-r from-gray-900 via-teal-900/50 to-gray-900 text-white p-4 overflow-hidden">
