@@ -8,6 +8,9 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+
+
+
 const carouselItems = [
   {
     title: "Discover Community Events",

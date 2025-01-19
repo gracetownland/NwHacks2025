@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import logo from "./assets/logo.png"
 // Navbar Component
 export const Navbar = () => {
   return (
@@ -8,8 +9,8 @@ export const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           <Link to="/">
             <div className="flex items-center gap-2">
-              <img
-                src="/api/placeholder/32/32"
+             <img
+                src={logo} 
                 alt="meet.point"
                 className="h-8 w-8 rounded-lg"
               />
@@ -36,11 +37,10 @@ export const Navbar = () => {
               <div className="bg-gradient-to-r from-orange-500 to-orange-600 px-4 py-1.5 rounded-full text-white font-medium">
                 4000 pts
               </div>
-              <img
-                src="/api/placeholder/32/32"
-                alt="Profile"
-                className="h-8 w-8 rounded-full ring-2 ring-orange-200"
-              />
+             <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" alt="Profile Picture" />
+                <AvatarFallback>MP</AvatarFallback>
+              </Avatar>
             </div>
           </div>
         </div>
