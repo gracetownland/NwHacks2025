@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   BookmarkPlus,
   Calendar,
@@ -12,45 +13,36 @@ import bookclub2 from "../../assets/bookclub2.jpg";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 
-// import { useParams } from "react-router-dom";
-
 export default function EventDetail() {
-//   const { eventId } = useParams();
-//   const similarEvents = [
-//     {
-//       id: "mystery-book-club",
-//       title: "Mystery Novels Book Club: Sharp Objects",
-//       points: 4000,
-//       bannerTitle: "gather",
-//       bannerSubtitle: "Book Discussion",
-//       dateTime: "Thursday at 6:30 PM",
-//       host: "Squamish Library",
-//       cost: "Free",
-//     },
-//     {
-//       id: "fantasy-book-club",
-//       title: "Fantasy Book Club: The Name of the Wind",
-//       points: 4000,
-//       bannerTitle: "gather",
-//       bannerSubtitle: "Book Discussion",
-//       dateTime: "Friday at 5:30 PM",
-//       host: "Squamish Library",
-//       cost: "Free",
-//     },
-//     {
-//       id: "sci-fi-book-club",
-//       title: "Sci-Fi Book Club: Project Hail Mary",
-//       points: 4000,
-//       bannerTitle: "gather",
-//       bannerSubtitle: "Book Discussion",
-//       dateTime: "Saturday at 4:30 PM",
-//       host: "Squamish Library",
-//       cost: "Free",
-//     },
-//   ];
+  const [isJoined, setIsJoined] = useState(false); // State to track button click
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
+  const [userLocation, setUserLocation] = useState(null); // State to store user location
+
+  const handleLocationRequest = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setUserLocation({
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          });
+          setIsModalOpen(false); // Close the modal after obtaining location
+          alert(
+            `Location Access Granted! Latitude: ${position.coords.latitude}, Longitude: ${position.coords.longitude}`
+          );
+        },
+        (error) => {
+          alert("Error accessing location: " + error.message);
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by your browser.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-black">
-      {/* Hero Section with teal gradient */}
+      {/* Hero Section */}
       <div className="relative bg-[#1B4D3E] min-h-[400px]">
         <div className="absolute inset-0">
           <img
@@ -62,7 +54,7 @@ export default function EventDetail() {
         </div>
 
         <div className="container relative mx-auto px-4 pt-12 pb-24">
-          {/* Event header content */}
+          {/* Event Header */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
               <Badge className="bg-[#1B4D3E] hover:bg-[#1B4D3E]/80 text-white">
@@ -92,11 +84,25 @@ export default function EventDetail() {
               </div>
             </div>
 
+            {/* Buttons Section */}
             <div className="flex gap-4">
-              <button className="px-6 py-3 bg-[#FF6B00] hover:bg-[#FF6B00]/80 text-white rounded-lg flex items-center gap-2 transition-colors">
-                <Users className="w-4 h-4" />
-                Join Event
-              </button>
+              {!isJoined ? (
+                <button
+                  className="px-6 py-3 bg-[#FF6B00] hover:bg-[#FF6B00]/80 text-white rounded-lg flex items-center gap-2 transition-colors"
+                  onClick={() => setIsJoined(true)}
+                >
+                  <Users className="w-4 h-4" />
+                  Join Event
+                </button>
+              ) : (
+                <button
+                  className="px-6 py-3 bg-[#2767f3] hover:bg-[#2767f3]/80 text-white rounded-lg flex items-center gap-2 transition-colors"
+                  onClick={() => setIsModalOpen(true)}
+                >
+                  <Users className="w-4 h-4" />
+                  Attend Event
+                </button>
+              )}
               <button className="px-6 py-3 bg-[#1B4D3E] hover:bg-[#1B4D3E]/80 text-white rounded-lg flex items-center gap-2 transition-colors">
                 <BookmarkPlus className="w-4 h-4" />
                 Save
@@ -110,10 +116,10 @@ export default function EventDetail() {
         </div>
       </div>
 
-      {/* Main content */}
+      {/* Main Content */}
       <div className="container mx-auto px-4 -mt-12">
         <div className="grid lg:grid-cols-3 gap-8">
-          {/* Left column - About & Photos */}
+          {/* Left Column */}
           <div className="lg:col-span-2 space-y-8">
             <Card className="bg-[#121212] border-gray-800">
               <div className="px-10 py-16">
@@ -149,25 +155,25 @@ export default function EventDetail() {
               </div>
             </Card>
 
-            {/* Photos section */}
-           <div className="space-y-4">
-  <h2 className="text-2xl font-bold text-white">Event Photos</h2>
-  <div className="grid grid-cols-3 gap-4">
-    <img
-      src={bookclub1}
-      alt="Event photo 1"
-      className="w-full h-48 object-cover rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
-    />
-    <img
-      src={bookclub2}
-      alt="Event photo 2"
-      className="w-full h-48 object-cover rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
-    />
-  </div>
-</div>
+            {/* Event Photos Section */}
+            <div className="space-y-4">
+              <h2 className="text-2xl font-bold text-white">Event Photos</h2>
+              <div className="grid grid-cols-3 gap-4">
+                <img
+                  src={bookclub1}
+                  alt="Event photo 1"
+                  className="w-full h-48 object-cover rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
+                />
+                <img
+                  src={bookclub2}
+                  alt="Event photo 2"
+                  className="w-full h-48 object-cover rounded-lg hover:opacity-80 transition-opacity cursor-pointer"
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Right column - Event Details & Points */}
+          {/* Right Column */}
           <div className="space-y-6">
             <Card className="bg-[#121212] border-gray-800">
               <div className="p-6 space-y-6">
@@ -223,8 +229,34 @@ export default function EventDetail() {
             </Card>
           </div>
         </div>
-   
       </div>
+
+      {/* Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
+            <h3 className="text-xl font-bold mb-4">Access Location</h3>
+            <p className="text-gray-600 mb-6">
+              This event requires access to your location. Please grant
+              permission to continue.
+            </p>
+            <div className="flex gap-4">
+              <button
+                onClick={handleLocationRequest}
+                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              >
+                Allow Access
+              </button>
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
