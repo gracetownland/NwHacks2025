@@ -1,6 +1,8 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Crown, Sparkles, Trophy } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import giftCard1 from "./../../assets/giftCard1.png";
+import giftCard2 from "./../../assets/giftCard2.png";
 
 import { RewardCard } from "./RewardCard";
 
@@ -12,7 +14,7 @@ const rewards = {
       points: 500,
       value: "$10",
       description: "Redeem for an Amazon e-gift card",
-      image: "/placeholder.svg?height=200&width=200",
+      image: giftCard1,
       sponsor: "Amazon",
       demand: "high",
       stock: 50,
@@ -23,7 +25,7 @@ const rewards = {
       points: 2000,
       value: "Priority",
       description: "Skip the line at selected Ticketmaster events",
-      image: "/placeholder.svg?height=200&width=200",
+      image: giftCard2,
       sponsor: "Ticketmaster",
       demand: "medium",
       stock: 25,

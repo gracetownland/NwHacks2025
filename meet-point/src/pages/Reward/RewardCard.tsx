@@ -9,6 +9,9 @@ import { Clock, Gift, Sparkles, Star } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import giftCard1 from "./../../assets/giftCard1.jpg";
+import giftCard2 from "./../../assets/giftCard2.png";
+
 
 export function RewardCard({ reward }: { reward: any }) {
   const demandStyles = {
