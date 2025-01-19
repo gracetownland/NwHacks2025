@@ -12,6 +12,9 @@ import bookclub2 from "../../assets/bookclub2.jpg";
 
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import Map from "@/Map";
+import "./Event.css"
+
 
 export default function EventDetail() {
   const [isJoined, setIsJoined] = useState(false); // State to track button click
@@ -42,6 +45,8 @@ export default function EventDetail() {
 
   return (
     <div className="min-h-screen bg-black">
+
+
       {/* Hero Section */}
       <div className="relative bg-[#1B4D3E] min-h-[400px]">
         <div className="absolute inset-0">
@@ -233,29 +238,30 @@ export default function EventDetail() {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-8 rounded-lg shadow-lg max-w-md">
-            <h3 className="text-xl font-bold mb-4">Access Location</h3>
-            <p className="text-gray-600 mb-6">
-              This event requires access to your location. Please grant
-              permission to continue.
-            </p>
-            <div className="flex gap-4">
-              <button
-                onClick={handleLocationRequest}
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
-              >
-                Allow Access
-              </button>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="px-4 py-2 bg-gray-300 rounded-lg hover:bg-gray-400"
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
+       <div
+  id="cardNamed"
+  className="fixed inset-0 bg-black bg-opacity-50 flex flex-col items-center justify-center z-50"
+>
+  <div className="bg-white p-8 rounded-lg shadow-lg max-w-xl">
+    <h3 className="text-xl font-bold mb-4">Access Location</h3>
+    <p className="text-gray-600 mb-6">Can you confirm if this is your location?</p>
+    <div className="flex flex-col gap-4 items-center">
+      <Map />
+      <button
+        onClick={handleLocationRequest}
+        className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 w-full"
+      >
+        Yes!
+      </button>
+      <button
+        onClick={() => setIsModalOpen(false)}
+        className="px-4 py-2 bg-red-400 rounded-lg hover:bg-red-500  w-full"
+      >
+        No
+      </button>
+    </div>
+  </div>
+</div>
       )}
     </div>
   );

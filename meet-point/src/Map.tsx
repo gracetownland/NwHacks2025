@@ -18,6 +18,7 @@ export default function Map() {
             setPosition(newPos);
             setBuffered(bufferer);
         });
+        console.log(position);
     }, []);
 
     if (!position || !buffered) {
