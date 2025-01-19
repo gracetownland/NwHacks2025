@@ -1,0 +1,59 @@
+/* Global Dark Theme Styles */
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: "Avenir";
+   }
+   
+   :root {
+     --neon-teal: rgba(45,212,191,0.3);
+     --neon-orange: rgba(251,146,60,0.3);
+     --neon-purple: rgba(168,85,247,0.3);
+   }
+   
+   body {
+     background-color: #0a0a0a;
+     color: #e5e7eb;
+   }
+   
+   /* Custom Animations */
+   @keyframes float {
+     0% { transform: translateY(0px); }
+     50% { transform: translateY(-10px); }
+     100% { transform: translateY(0px); }
+   }
+   
+   @keyframes pulse-glow {
+     0% { box-shadow: 0 0 5px var(--neon-teal); }
+     50% { box-shadow: 0 0 20px var(--neon-teal); }
+     100% { box-shadow: 0 0 5px var(--neon-teal); }
+   }
+   
+   @keyframes gradient-shift {
+     0% { background-position: 0% 50%; }
+     50% { background-position: 100% 50%; }
+     100% { background-position: 0% 50%; }
+   }
+   
+   .animate-float {
+     animation: float 3s ease-in-out infinite;
+   }
+   
+   .animate-pulse-glow {
+     animation: pulse-glow 2s ease-in-out infinite;
+   }
+   
+   .animate-gradient {
+     animation: gradient-shift 3s ease infinite;
+     background-size: 200% 200%;
+   }
+   
+   /* Neon Effects */
+   .neon-border {
+     box-shadow: 0 0 10px var(--neon-teal);
+   }
+   
+   .neon-text {
+     text-shadow: 0 0 10px var(--neon-teal);
+   }
