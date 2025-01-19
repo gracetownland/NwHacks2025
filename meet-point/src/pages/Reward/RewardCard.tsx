@@ -9,6 +9,9 @@ import { Clock, Gift, Sparkles, Star } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import icon1 from "./../../assets/icon2.png";
+import giftCard2 from "./../../assets/giftCard2.png";
+
 
 export function RewardCard({ reward }: { reward: any }) {
   const demandStyles = {
@@ -70,7 +73,7 @@ export function RewardCard({ reward }: { reward: any }) {
             </h3>
             <div className="flex items-center gap-2 mt-1 text-gray-500">
               <img
-                src="/api/placeholder/20/20"
+                src={icon1}
                 alt={reward.sponsor}
                 className="w-5 h-5 rounded-full"
               />
