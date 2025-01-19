@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   BookmarkPlus,
   Calendar,
@@ -13,7 +13,6 @@ import bookclub2 from "../../assets/bookclub2.jpg";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
 import Map from "@/Map";
-import { Button } from "@/components/ui/button"
 import { ToastAction } from "@/components/ui/toast"
 import { useToast } from "@/hooks/use-toast";
 import "./Event.css"
@@ -23,10 +22,6 @@ export default function EventDetail() {
   const [isJoined, setIsJoined] = useState(false); // State to track button click
   const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
   const { toast } = useToast();
-  const handleLocationRequest = () => {
-
-  }
-
 
   return (
     <div className="min-h-screen bg-black">
@@ -44,15 +39,18 @@ export default function EventDetail() {
         </div>
 
         <div className="container relative mx-auto px-4 pt-12 pb-24">
+
           {/* Event Header */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <Badge className="bg-[#1B4D3E] hover:bg-[#1B4D3E]/80 text-white">
-                gather
-              </Badge>
-              <Badge className="bg-[#FF6B00] hover:bg-[#FF6B00]/80 text-white">
-                4000 pts
-              </Badge>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <Badge className="bg-[#1B4D3E] hover:bg-[#1B4D3E]/80 text-white">
+                  gather
+                </Badge>
+                <Badge className="bg-[#FF6B00] hover:bg-[#FF6B00]/80 text-white">
+                  4000 pts
+                </Badge>
+              </div>
             </div>
 
             <h1 className="text-4xl font-bold text-white max-w-2xl">
@@ -72,6 +70,9 @@ export default function EventDetail() {
                 <Users className="w-5 h-5" />
                 <span>15/25 attending</span>
               </div>
+            </div>
+            <div className="w-full">
+              <video controls autoPlay><source src="http://128.189.138.246:38080/api/playback/0x7f34dddf40de2c539a3c829272d4b915072fdd30/stream.mp4" type="video/mp4" /></video>
             </div>
 
             {/* Buttons Section */}
@@ -105,7 +106,6 @@ export default function EventDetail() {
           </div>
         </div>
       </div>
-
       {/* Main Content */}
       <div className="container mx-auto px-4 -mt-12">
         <div className="grid lg:grid-cols-3 gap-8">
