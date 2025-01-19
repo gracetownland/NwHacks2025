@@ -7,7 +7,7 @@ export function CommunityEvents() {
     {
       id: "squamish-book-club-1",
       points: 4000,
-      bannerTitle: "gather",
+      bannerTitle: "Gather",
       bannerSubtitle: "Squamish Book Club",
       eventTitle: "SQUAMISH BOOK CLUB WITH ANNIE: The God of the Woods",
       dateTime: "Monday at 7:30 PM",
@@ -16,15 +16,74 @@ export function CommunityEvents() {
     },
     {
       id: "squamish-book-club-2",
-      points: 4000,
-      bannerTitle: "gather",
+      points: 3500,
+      bannerTitle: "Gather",
       bannerSubtitle: "Squamish Book Club",
       eventTitle: "SQUAMISH BOOK CLUB WITH ANNIE: The Lost City",
       dateTime: "Wednesday at 6:30 PM",
       host: "Mohit Events",
       cost: "Free"
     },
-    // Add more events as needed...
+    {
+      id: "basketball-tournament",
+      points: 5000,
+      bannerTitle: "Sports",
+      bannerSubtitle: "Local Basketball Tournament",
+      eventTitle: "3v3 Basketball Tournament - Sign Up Your Team!",
+      dateTime: "Saturday at 10:00 AM",
+      host: "City Sports Club",
+      cost: "$10 per person"
+    },
+    {
+      id: "yoga-session",
+      points: 1500,
+      bannerTitle: "Wellness",
+      bannerSubtitle: "Morning Yoga",
+      eventTitle: "Sunrise Yoga at Central Park",
+      dateTime: "Thursday at 7:00 AM",
+      host: "Wellness Warriors",
+      cost: "Free"
+    },
+    {
+      id: "coffee-meetup",
+      points: 1000,
+      bannerTitle: "Community",
+      bannerSubtitle: "Coffee Chat",
+      eventTitle: "Networking Over Coffee",
+      dateTime: "Friday at 9:00 AM",
+      host: "Downtown Café",
+      cost: "$5"
+    },
+    {
+      id: "coding-workshop",
+      points: 2000,
+      bannerTitle: "Education",
+      bannerSubtitle: "Tech Workshop",
+      eventTitle: "Intro to JavaScript Coding for Beginners",
+      dateTime: "Sunday at 2:00 PM",
+      host: "Tech Talks",
+      cost: "Free"
+    },
+    {
+      id: "local-farmers-market",
+      points: 800,
+      bannerTitle: "Community",
+      bannerSubtitle: "Farmers Market",
+      eventTitle: "Visit the Local Farmers Market",
+      dateTime: "Saturday at 8:00 AM",
+      host: "City Events",
+      cost: "Free"
+    },
+    {
+      id: "movie-night",
+      points: 2500,
+      bannerTitle: "Entertainment",
+      bannerSubtitle: "Outdoor Movie",
+      eventTitle: "Movie Under the Stars: The Greatest Showman",
+      dateTime: "Friday at 7:30 PM",
+      host: "City Park",
+      cost: "Free"
+    }
   ];
 
   return (
