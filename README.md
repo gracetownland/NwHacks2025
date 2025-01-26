@@ -1,7 +1,7 @@
 # Inspiration
 We realised that the quality of connections in the digital age has dwindled progressively with time. In the hope of strengthening community relations and boost quality of mental health, we decided to make this platform to encourage more face to face interactions in third spaces.
 
-#What it does
+# What it does
 The app provides users with gamified reward based incentives which motivates users to attend more events. Sponsors of Meet.point are granted adspace on both the event page, livestream and at the physical location.
 
 # How we built it
